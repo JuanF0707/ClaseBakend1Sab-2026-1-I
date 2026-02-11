@@ -41,7 +41,22 @@ public class SellingSystem {
                 System.out.println("Respuesta invalida. Escriba si o no.");
             }
         }
-        deletProducts(id);
+        while (true){
+            System.out.println("¿Desea eliminar algun producto? (Si/NO) ");
+            respuesta = sc.nextLine().toLowerCase();
+            if (respuesta.equals("si")){
+                System.out.println("Ingrese el Id del producto que desea eliminar");
+                id = sc.nextInt();
+                sc.nextLine();
+                deletProducts(id);
+            } else if (respuesta.equals("no")) {
+                break;
+            }
+            else {
+                System.out.println("Respuesta invalida. Escriba si o no.");
+            }
+        }
+
         createCustomer();
         getCustomer();
         while (true){
@@ -60,7 +75,21 @@ public class SellingSystem {
                 System.out.println("Respuesta invalida. Escriba si o no.");
             }
         }
-        deleteCustomer(idCustomer);
+        while (true){
+            System.out.println("¿Desea eliminar un cliente? (Si/NO)");
+            respuesta = sc.nextLine().toLowerCase();
+            if (respuesta.equals("si")){
+                System.out.println("Ingrese el Id del cliente para eliminar");
+                idCustomer =sc.nextInt();
+                sc.nextLine();
+                deleteCustomer(idCustomer);
+            } else if (respuesta.equals("no")) {
+                break;
+            }
+            else {
+                System.out.println("Respuesta invalida. Escriba si o no.");
+            }
+        }
     }
 
     // Class Methods
@@ -120,12 +149,11 @@ public class SellingSystem {
     public static void deletProducts(int finId){
 
         if (finId == id){
-
-            id = 0;
-            description = " ";
-            price = 0.0;
-            quantity= 0;
-            state = false;
+            System.out.println("id = 0;\n" +
+                    "            description = \" \";\n" +
+                    "            price = 0.0;\n" +
+                    "            quantity= 0;\n" +
+                    "            state = false;");
 
         }else {
             System.out.println("Id " + id + " no encontrado");
@@ -189,13 +217,12 @@ public class SellingSystem {
      public static void deleteCustomer(int finId){
 
         if (finId == idCustomer){
-
-            idCustomer = 0;
-            name = " ";
-            lastName = " ";
-            direction = " ";
-            phone = 0;
-            email = " ";
+            System.out.println("idCustomer = 0;\n" +
+                    "            name = \" \";\n" +
+                    "            lastName = \" \";\n" +
+                    "            direction = \" \";\n" +
+                    "            phone = 0;\n" +
+                    "            email = \" \";");
 
         }else {
             System.out.println("Id " + idCustomer + " no encontrado");
